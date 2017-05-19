@@ -21,11 +21,11 @@ from sklearn.metrics import accuracy_score
 features_train, features_test, labels_train, labels_test = preprocess()
 
 # Training
-clf = svm.SVC(kernel='linear')
+clf = svm.SVC(C=10000.0, kernel='rbf')
 
 # Cut the data by 1/100
-features_train = features_train[:len(features_train)/100]
-labels_train = labels_train[:len(labels_train)/100]
+# features_train = features_train[:len(features_train)/100]
+# labels_train = labels_train[:len(labels_train)/100]
 
 # Fit features and labels
 t0 = time()
@@ -40,3 +40,15 @@ print "prediction time: ", round(time()-t0, 3), "s"
 # Accuracy
 accuracy = accuracy_score(labels_test, pred)
 print 'Accuracy: {0}'.format(accuracy)
+
+# Answer
+# answer = pred[50]
+# print 'Answer: {0}'.format(answer)
+
+chris = 0
+
+for answer in pred:
+    if answer == 1:
+        chris += 1
+
+print 'Chris has written {0} emails'.format(chris)
