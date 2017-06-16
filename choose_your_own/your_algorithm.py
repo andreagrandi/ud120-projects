@@ -32,10 +32,23 @@ plt.show()
 ### visualization code (prettyPicture) to show you the decision boundary
 
 
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score
+from time import time
 
 
+clf = KNeighborsClassifier(n_neighbors=3)
+clf.fit(features_train, labels_train)
 
 
+# Prediction
+t0 = time()
+pred = clf.predict(features_test)
+print "prediction time: ", round(time()-t0, 3), "s"
+
+# Accuracy
+accuracy = accuracy_score(labels_test, pred)
+print 'Accuracy: {0}'.format(accuracy)
 
 
 try:
