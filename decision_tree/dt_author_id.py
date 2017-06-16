@@ -46,3 +46,7 @@ for answer in pred:
         chris += 1
 
 print 'Chris has written {0} emails'.format(chris)
+
+# Number of features
+number_of_features = len(features_train[0])
+print 'Number of features for this dataset: {0}'.format(number_of_features)
